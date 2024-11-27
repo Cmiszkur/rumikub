@@ -18,7 +18,13 @@
           "buildTarget": "rumikub-be:build:development"
         },
         "production": {
-          "buildTarget": "rumikub-be:build:production"
+          "buildTarget": "rumikub-be:build:production",
+          "fileReplacements": [
+            {
+              "replace": "apps/rumikub-be/src/environments/environment.ts",
+              "with": "apps/rumikub-be/src/environments/environment.prod.ts"
+            }
+          ]
         }
       }
     },

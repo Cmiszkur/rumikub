@@ -8,12 +8,16 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/rumikub-fe",
         "index": "apps/rumikub-fe/src/index.html",
         "browser": "apps/rumikub-fe/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/rumikub-fe/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,7 +26,10 @@
             "input": "apps/rumikub-fe/public"
           }
         ],
-        "styles": ["apps/rumikub-fe/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/azure-blue.css",
+          "apps/rumikub-fe/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -37,6 +44,12 @@
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
               "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/rumikub-fe/environments/environment.ts",
+              "with": "apps/rumikub-fe/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -72,7 +85,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/rumikub-fe/jest.config.ts"
       }

@@ -1,0 +1,11 @@
+<div class="snackbar-textarea">
+  <div class="snackbar-title">
+    <mat-icon>error</mat-icon>
+    <span>{{data.title}}</span>
+  </div>
+  <span *ngIf="data.text">{{data.text}}</span>
+</div>
+<button mat-icon-button (click)="closeDialog()">
+  <mat-icon>close</mat-icon>
+</button>
+
