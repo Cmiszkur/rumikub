@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { AuthService } from './service/auth.service';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './controller/auth.controller';
-import { JwtAuthGuard } from '../../guards/guest-jwt.guard';
+import * as process from 'node:process';
 
 @Module({
   imports: [
     JwtModule.register({
-      secret: 'your_secret_key', // Replace with a secure secret
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '24h' },
     }),
   ],
