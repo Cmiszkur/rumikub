@@ -13,6 +13,6 @@ export class Player {
   @OneToMany(() => Tile, (tile) => tile.player)
   tiles: Tile[];
 
-  @ManyToOne(() => Game, (game) => game.players)
+  @ManyToOne(() => Game, (game) => game.players, { onDelete: 'CASCADE' })
   game: Game;
 }

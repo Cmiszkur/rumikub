@@ -5,6 +5,8 @@ export interface ExtendedSocket extends Socket {
   gameRoomId: string | undefined;
 }
 
+export type ExtendedRequest = Request & { user?: RequestUser }
+
 export interface RequestUser {
   _id?: string;
   /**

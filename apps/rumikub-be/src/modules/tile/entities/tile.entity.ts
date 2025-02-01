@@ -17,8 +17,8 @@ export class Tile {
   @ManyToOne(() => Player, (player) => player.tiles, { onDelete: 'SET NULL', nullable: true })
   player?: Player;
 
-  @Column()
-  value: number; // Tile value (1-13)
+  @Column({ nullable: true })
+  value?: number; // Tile value (1-13)
 
   @Column()
   color: string; // Tile color (e.g., 'red', 'blue', etc.)

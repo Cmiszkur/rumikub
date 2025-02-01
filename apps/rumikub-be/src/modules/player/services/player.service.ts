@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Player } from '../entities/player.entity';
 import { Repository } from 'typeorm';
-import { Game } from '../../game/entities/game.entity';
 
 @Injectable()
 export class PlayerService {
@@ -11,8 +10,8 @@ export class PlayerService {
     @InjectRepository(Player) private readonly playerRepository: Repository<Player>
   ) {}
 
-  async createPlayer(game: Game, name: string): Promise<Player> {
-    const player = this.playerRepository.create({ game, name });
+  async createPlayer(gameId: number, name: string): Promise<Player> {
+    const player = this.playerRepository.create({ game: { game_id: gameId }, name });
     return this.playerRepository.save(player);
   }
 
